@@ -23,7 +23,7 @@ void Mode3::Load()
 {
 	super_rect1_1 = new Super_Rect({ (Engine::GetWindow().GetSize().x / 3.4) + RectStart, 200 }, 4.05, 1);
 	super_rect1_2 = new Super_Rect({ (Engine::GetWindow().GetSize().x / 3.4) + RectStart, 600 }, 0.94, 1);
-	super_rect2_1 = new Super_Rect2({ (Engine::GetWindow().GetSize().x / 3.4) + RectStart, 600 }, 0.94, 1);
+	super_rect2_1 = new Super_Rect2({ (Engine::GetWindow().GetSize().x / 5.2) + RectStart, 400 }, 2.18, 1);
 	super_rect1_1->Load();
 	super_rect1_2->Load();
 	super_rect2_1->Load();
@@ -56,4 +56,5 @@ void Mode3::Draw()
 	player.Draw();
 	super_rect1_1->Draw();
 	super_rect1_2->Draw();
+	super_rect2_1->Draw();
 }

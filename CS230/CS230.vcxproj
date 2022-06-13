@@ -142,6 +142,7 @@
     <ClCompile Include="Engine\Animation.cpp" />
     <ClCompile Include="Engine\Camera.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Engine\GameObjectManager.cpp" />
     <ClCompile Include="Engine\GameStateManager.cpp" />
     <ClCompile Include="Engine\Input.cpp" />
     <ClCompile Include="Engine\Input_Doodle.cpp" />
@@ -160,12 +161,15 @@
     <ClCompile Include="Game\Ship.cpp" />
     <ClCompile Include="Game\Splash.cpp" />
     <ClCompile Include="Game\Super_Rect.cpp" />
+    <ClCompile Include="Game\Super_Rect2.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Animation.h" />
     <ClInclude Include="Engine\Camera.h" />
     <ClInclude Include="Engine\Engine.h" />
+    <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\GameObjectManager.h" />
     <ClInclude Include="Engine\GameState.h" />
     <ClInclude Include="Engine\GameStateManager.h" />
     <ClInclude Include="Engine\Input.h" />
@@ -190,6 +194,7 @@
     <ClInclude Include="Game\Ship.h" />
     <ClInclude Include="Game\Splash.h" />
     <ClInclude Include="Game\Super_Rect.h" />
+    <ClInclude Include="Game\Super_Rect2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\Vec.inl" />

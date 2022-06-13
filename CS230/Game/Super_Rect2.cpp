@@ -32,7 +32,7 @@ void Super_Rect2::Update(double dt)
 	cout << RectHeight << endl;
 
 	velocity -= (velocity * Super_Rect2::drag * dt);
-	position.x -= velocity.x * dt;
+	position.x += velocity.x * dt;
 	RectWidth -= 0.90 * dt;
 	RectHeight -= 0.66 * dt;
 
