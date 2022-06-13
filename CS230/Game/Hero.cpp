@@ -29,8 +29,6 @@ void Hero::Load()
 	currState->Enter(this);
 }
 
-
-
 void Hero::Update(double dt) 
 {
 	currState->Update(this, dt);

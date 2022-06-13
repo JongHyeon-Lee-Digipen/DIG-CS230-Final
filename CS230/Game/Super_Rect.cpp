@@ -25,26 +25,22 @@ void Super_Rect::Load()
 
 void Super_Rect::Update(double dt)
 {
-
-	Timer + dt;
+	Timer += dt;
 	math::TransformMatrix roation = math::RotateMatrix(currentRotation);
 	velocity += roation * math::vec2(0, accel * dt);
 
-	cout << Timer << endl;
-	if ((startPos.x - position.x) <= (Engine::GetWindow().GetSize().x / 2.0))
-	{
-		position.x = startPos.x;
-	}
-
-	if ((position.x - startPos.x) <= (Engine::GetWindow().GetSize().x / 2.0))
-	{
-		position.x = startPos.x;
-	}
+	cout << RectHeight << endl;
 
 	velocity -= (velocity * Super_Rect::drag * dt);
-	position -= velocity * dt;
-	RectWidth -= 0.02;
-	RectHeight -= 0.01;
+	position.y -= velocity.y * dt;
+	RectWidth -= 0.90 * dt;
+	RectHeight -= 0.66 * dt;
+
+	if (RectHeight < 0)
+	{
+		RectHeight = 0;
+	}
+
 	objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
 }
 

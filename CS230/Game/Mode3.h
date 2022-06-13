@@ -32,6 +32,6 @@ private:
 	Super_Rect* super_rect2;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
-	static constexpr double RectStart = 200;
+	static constexpr double RectStart = 300;
 };
 
