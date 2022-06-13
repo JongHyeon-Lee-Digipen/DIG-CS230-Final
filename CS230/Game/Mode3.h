@@ -28,5 +28,6 @@ private:
 	Super_Rect* super_rect;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
+	static constexpr double RectStart = 200;
 };
 

@@ -22,7 +22,7 @@ Mode3::Mode3()
 
 void Mode3::Load() 
 {
-	super_rect = new Super_Rect({ 450, 406 });
+	super_rect = new Super_Rect({(Engine::GetWindow().GetSize().x / 2.0) + RectStart, 400});
 	super_rect->Load();
 	player.Load();
 }

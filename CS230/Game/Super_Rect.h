@@ -27,10 +27,11 @@ private:
 	math::vec2 position;
 	math::vec2 velocity;
 
+	static constexpr double pi = 3.14159265358979;
 	static constexpr double accel = 400;
 	static constexpr double drag = 1;
 	static constexpr double Speed = 200;
-	static constexpr double rotate = 1;
+	static constexpr double rotate = pi / 2.0;
 	double currentRotation = 0;
 
 	double Cos_Value{};

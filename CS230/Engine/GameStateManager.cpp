@@ -93,6 +93,7 @@ void CS230::GameStateManager::Update(double dt)
 		break;
 	case CS230::GameStateManager::State::UNLOAD:
 		Engine::GetLogger().LogEvent("Unload " + currGameState->GetName());
+		currGameState->Unload();
 		if (nextGameState == nullptr) {
 			state = State::SHUTDOWN;
 			break;
