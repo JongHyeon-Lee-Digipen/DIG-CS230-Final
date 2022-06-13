@@ -38,16 +38,16 @@ void Player::Update(double dt)
 	position += velocity * dt;
 	position.x = (sin(Sin_Value) * 3000) * dt+ Engine::GetWindow().GetSize().x / 2.0 ;
 	position.y = (cos(Cos_Value) * 3000) * dt + Engine::GetWindow().GetSize().y / 2.0;
-	objectMatrix = math::TranslateMatrix(position) * math::ScaleMatrix(math::vec2(0.01));
+	objectMatrix = math::TranslateMatrix(position) * math::ScaleMatrix(math::vec2(1));
 	Player_State();
 }
 
 void Player::Draw()
 {
-	if (Player_Life == true)
-	{
-		sprite.Draw(objectMatrix);
-	}
+	//if (Player_Life == true)
+	//{
+	sprite.Draw(objectMatrix);
+	//}
 }
 
 void Player::ChangeState(State* newState)
