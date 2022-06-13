@@ -92,6 +92,7 @@ void Mode3::Update(double dt)
 	{
 		Engine::GetGameStateManager().ReloadState();
 		Player_Life = true;
+		//player.Count = 0;
 	}
 }
 

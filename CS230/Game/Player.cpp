@@ -19,11 +19,15 @@ Moving_Right(CS230::InputKey::Keyboard::D), Moving_Left(CS230::InputKey::Keyboar
 void Player::Load()
 {
 	sprite.Load("assets/Player.spt");
+	Die.Load("assets/YouDie.png");
+	Win.Load("assets/YouWin.png");
 	position = startPos;
 }
 
 void Player::Update(double dt)
 {
+	Count += dt;
+
 	if (Moving_Right.IsKeyDown() == true)
 	{
 		Cos_Value = Cos_Value + Speed * dt;
@@ -44,10 +48,20 @@ void Player::Update(double dt)
 
 void Player::Draw()
 {
-	//if (Player_Life == true)
-	//{
-	sprite.Draw(objectMatrix);
-	//}
+	if (Player_Life == true)
+	{
+		sprite.Draw(objectMatrix);
+	}
+	else if (Count >= Timer)
+	{
+		Win.Draw(objectMatrix);
+	}
+	else if (Player_Life == false)
+	{
+		Die.Draw(objectMatrix);
+	}
+
+	
 }
 
 void Player::ChangeState(State* newState)

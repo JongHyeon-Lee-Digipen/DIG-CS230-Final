@@ -26,6 +26,8 @@ public:
 	int Get_Num();
 	void Set_Life(bool& Life);
 
+	double Timer = 10;
+	double Count{};
 private:
 	class State
 	{
@@ -68,10 +70,12 @@ private:
 	double Cos_Value{};
 	double Sin_Value{};
 
-
 	CS230::InputKey Moving_Right;
 	CS230::InputKey Moving_Left;
 	math::TransformMatrix objectMatrix;
+
+	CS230::Texture Die;
+	CS230::Texture Win;
 };
 
 inline Player player({0,0});
