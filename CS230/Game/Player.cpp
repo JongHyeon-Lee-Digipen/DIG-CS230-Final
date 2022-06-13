@@ -38,7 +38,7 @@ void Player::Update(double dt)
 	position += velocity * dt;
 	position.x = (sin(Sin_Value) * 3000) * dt+ Engine::GetWindow().GetSize().x / 2.0 ;
 	position.y = (cos(Cos_Value) * 3000) * dt + Engine::GetWindow().GetSize().y / 2.0;
-	objectMatrix = math::TranslateMatrix(position) * math::ScaleMatrix(math::vec2(1));
+	objectMatrix = math::TranslateMatrix(position) * math::ScaleMatrix(math::vec2(0.5));
 	Player_State();
 }
 
@@ -77,7 +77,8 @@ void Player::State_Idle::TestForExit([[maybe_unused]] Player* player)
 
 void Player::State_Dead::Enter(Player* player)
 {
-	player->sprite.PlayAnimation(static_cast<int>(Player_Anim::Player_Death_Anim));
+	cout << "Enter" << endl;
+	player->sprite.PlayAnimation(static_cast<int>(Player_Anim::Player_Dead_Anim));
 }
 
 void Player::State_Dead::Update([[maybe_unused]] Player* player, [[maybe_unused]] double dt)
