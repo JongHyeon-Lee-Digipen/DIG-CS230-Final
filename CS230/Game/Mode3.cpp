@@ -48,6 +48,7 @@ void Mode3::Update(double dt)
 	if (modeReload.IsKeyReleased() == true)
 	{
 		Engine::GetGameStateManager().ReloadState();
+		Player_Life = true;
 	}
 }
 

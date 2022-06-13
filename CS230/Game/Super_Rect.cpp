@@ -38,12 +38,14 @@ void Super_Rect::Update(double dt)
 		RectHeight -= 0.66 * dt;
 	}
 
+	cout << RectHeight << endl;
+	cout << Current_State << endl;
 	cout << Player_Life << endl;
 	if (RectHeight < 0)
 	{
 		RectHeight = 0;
 	}
-	if (Current_State == 3 && RectHeight > 0.5 )
+	if (Current_State == 3 && (RectHeight > 0 && RectHeight <= 0.1))
 	{
 		Player_Life = false;
 	}
