@@ -31,7 +31,7 @@ public:
 private:
 
     class State 
-     {
+    {
     public:
         virtual void Enter(Hero* hero) = 0;
         virtual void Update(Hero* hero, double dt) = 0;
@@ -103,5 +103,4 @@ private:
 	CS230::InputKey jumpKey;
 	CS230::InputKey moveLeftKey;
 	CS230::InputKey moveRightKey;
-
 };

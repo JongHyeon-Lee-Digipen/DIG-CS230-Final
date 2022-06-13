@@ -13,6 +13,7 @@ Creation date: 2/11/2021
 #include "..\Engine\Vec2.h"
 #include "..\Engine\TransformMatrix.h"
 #include "..\Game\Super_Rect.h"
+#include "Player_Anims.h"
 class Player
 {
 public:
@@ -26,6 +27,35 @@ public:
 	void Set_Life(bool& Life);
 
 private:
+	class State
+	{
+	public:
+		virtual void Enter(Player* player) = 0;
+		virtual void Update(Player* player, double dt) = 0;
+		virtual void TestForExit(Player* player) = 0;
+		virtual std::string GetName() = 0;
+	};
+	class State_Idle : public State {
+	public:
+		virtual void Enter(Player* player) override;
+		virtual void Update(Player* player, double dt) override;
+		virtual void TestForExit(Player* player) override;
+		std::string GetName() override { return "Idle"; }
+	};
+	class State_Dead : public State {
+	public:
+		virtual void Enter(Player* player) override;
+		virtual void Update(Player* player, double dt) override;
+		virtual void TestForExit(Player* player) override;
+		std::string GetName() override { return "Idle"; }
+	};
+
+	State_Idle stateIdle;
+	State_Dead stateDeath;
+
+	void ChangeState(State* newState);
+
+	State* currState;
 
 	CS230::Sprite sprite;
 	math::vec2 startPos;

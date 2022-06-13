@@ -50,6 +50,48 @@ void Player::Draw()
 	}
 }
 
+void Player::ChangeState(State* newState)
+{
+	Engine::GetLogger().LogDebug("Leaving State: " + currState->GetName() + " Entering State: " + newState->GetName());
+	currState = newState;
+	currState->Enter(this);
+}
+
+void Player::State_Idle::Enter(Player* player)
+{
+	static_cast<int>(Player_Anim::Player_Idle_Anim);
+}
+
+void Player::State_Idle::Update([[maybe_unused]] Player* player, [[maybe_unused]] double dt)
+{
+	//
+}
+
+void Player::State_Idle::TestForExit([[maybe_unused]] Player* player)
+{
+	if (Player_Life == false)
+	{
+		player->ChangeState(&player->stateDeath);
+	}
+}
+
+void Player::State_Dead::Enter(Player* player)
+{
+	player->sprite.PlayAnimation(static_cast<int>(Player_Anim::Player_Death_Anim));
+}
+
+void Player::State_Dead::Update([[maybe_unused]] Player* player, [[maybe_unused]] double dt)
+{
+	//
+}
+
+void Player::State_Dead::TestForExit([[maybe_unused]] Player* player)
+{
+	if (Player_Life == true)
+	{
+		player->ChangeState(&player->stateIdle);
+	}
+}
 
 void Player::Player_State()
 {

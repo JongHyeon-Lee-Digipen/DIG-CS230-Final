@@ -183,6 +183,9 @@
     <ClInclude Include="Game\Super_Rect4.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Player_Anims.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\Vec.inl">
