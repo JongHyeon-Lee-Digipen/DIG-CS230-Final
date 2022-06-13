@@ -13,15 +13,15 @@ Creation date: 3/14/2021
 #include "Mode3.h"
 #include "Player.h"
 
-
 Mode3::Mode3()
-	:player(Engine::GetWindow().GetSize() / 2.0),
+	:player(Engine::GetWindow().GetSize() / 2.0), super_rect1_1(super_rect1_1),
 	modeReload(CS230::InputKey::Keyboard::R),
 	modeNext(CS230::InputKey::Keyboard::Enter){}
 
 void Mode3::Load() 
 {
 	player.Load();
+	texture.Load("assets/back.png");
 	super_rect1_1 = new Super_Rect({ (Engine::GetWindow().GetSize().x / 3.4) + RectStart, 200 }, 4.05, 3);
 	super_rect2_1 = new Super_Rect2({ (Engine::GetWindow().GetSize().x / 7.0) + RectStart, 400 }, 2.41, 2);
 	super_rect3_1 = new Super_Rect3({ (Engine::GetWindow().GetSize().x / 3.4) + RectStart, 600 }, 0.94, 1);
@@ -60,7 +60,6 @@ void Mode3::Load()
 void Mode3::Update(double dt)
 {
 	player.Update(dt);
-	Timer += dt;
 
 	super_rect1_1->Update(dt);
 	super_rect2_1->Update(dt);
@@ -92,6 +91,7 @@ void Mode3::Update(double dt)
 	{
 		Engine::GetGameStateManager().ReloadState();
 		Player_Life = true;
+		player.Count = 0;
 		//player.Count = 0;
 	}
 }
@@ -101,8 +101,9 @@ void Mode3::Unload() {}
 void Mode3::Draw()
 {
 	Engine::GetWindow().Clear(0x0F0000FF);
+	math::vec2 Splash_Vec(Engine::GetWindow().GetSize() / 2 - texture.GetSize() / 2);
+	texture.Draw(math::TranslateMatrix(Splash_Vec));
 	player.Draw();
-
 	super_rect1_1->Draw();
 	super_rect2_1->Draw();
 	super_rect3_1->Draw();

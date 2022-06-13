@@ -15,7 +15,7 @@ Creation date: 3/27/2021
 
 
 Hero::Hero(math::vec2 startPos, const CS230::Camera& camera) : 
-startPos(startPos), camera(camera), currState(&stateIdle), isFlipping(&isFlipping), isJumping(&isJumping), isRising(&isRising),
+startPos(startPos), camera(camera), currState(&stateIdle), isFlipping(isFlipping), isJumping(isJumping), isRising(isRising),
  jumpKey(CS230::InputKey::Keyboard::Up), 
 moveLeftKey(CS230::InputKey::Keyboard::Left), moveRightKey(CS230::InputKey::Keyboard::Right) {}
 

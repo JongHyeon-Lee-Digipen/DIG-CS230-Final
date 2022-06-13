@@ -26,7 +26,7 @@ public:
 	int Get_Num();
 	void Set_Life(bool& Life);
 
-	double Timer = 10;
+	double Timer = 25;
 	double Count{};
 private:
 	class State
@@ -79,5 +79,5 @@ private:
 };
 
 inline Player player({0,0});
-inline int  Current_State{ 3 };
+inline int  Current_State{};
 inline bool Player_Life = true;

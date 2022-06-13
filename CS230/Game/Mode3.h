@@ -17,6 +17,8 @@ Creation date: 2/10/2021
 #include "Super_Rect4.h"
 #include "Background.h"
 #include "../Engine/GameObjectManager.h"
+#include "..\Engine\GameState.h"
+#include "..\Engine\Texture.h"
 
 class Mode3 : public CS230::GameState 
 {
@@ -32,29 +34,30 @@ private:
 
 	Player player;
 	CS230::GameObjectManager gameObjectManager;
-	Super_Rect* super_rect1_1;
-	Super_Rect2* super_rect2_1;
-	Super_Rect3* super_rect3_1;
-	Super_Rect4* super_rect4_1;
+	Super_Rect* super_rect1_1{};
+	Super_Rect2* super_rect2_1{};
+	Super_Rect3* super_rect3_1{};
+	Super_Rect4* super_rect4_1{};
 
-	Super_Rect* super_rect1_2;
-	Super_Rect2* super_rect2_2;
-	Super_Rect3* super_rect3_2;
-	Super_Rect4* super_rect4_2;
+	Super_Rect* super_rect1_2{};
+	Super_Rect2* super_rect2_2{};
+	Super_Rect3* super_rect3_2{};
+	Super_Rect4* super_rect4_2{};
 
-	Super_Rect* super_rect1_3;
-	Super_Rect2* super_rect2_3;
-	Super_Rect3* super_rect3_3;
-	Super_Rect4* super_rect4_3;
+	Super_Rect* super_rect1_3{};
+	Super_Rect2* super_rect2_3{};
+	Super_Rect3* super_rect3_3{};
+	Super_Rect4* super_rect4_3{};
 
-	Super_Rect* super_rect1_4;
-	Super_Rect2* super_rect2_4;
-	Super_Rect3* super_rect3_4;
-	Super_Rect4* super_rect4_4;
+	Super_Rect* super_rect1_4{};
+	Super_Rect2* super_rect2_4{};
+	Super_Rect3* super_rect3_4{};
+	Super_Rect4* super_rect4_4{};
 
 	Background background;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
+	CS230::Texture texture;
 	double Timer{};
 	static constexpr double RectStart = 300;
 };

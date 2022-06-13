@@ -23,7 +23,7 @@ int main(void) {
 	try {
 
 		Engine& engine = Engine::Instance();
-		engine.Init("Week 6 -  Jemin.Shin");
+		engine.Init("Final ProJect - Jemin.Shin JonhHyeon.Lee");
 		Splash splash;
 		Mode1 mode1;
 		Mode2 mode2;

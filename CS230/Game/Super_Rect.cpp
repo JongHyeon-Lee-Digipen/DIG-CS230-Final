@@ -40,10 +40,6 @@ void Super_Rect::Update(double dt)
 			RectWidth -= 0.90 * dt;
 			RectHeight -= 0.66 * dt;
 		}
-
-		cout << RectHeight << endl;
-		cout << Current_State << endl;
-		cout << Player_Life << endl;
 		if (RectHeight < 0)
 		{
 			RectHeight = 0;

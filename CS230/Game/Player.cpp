@@ -13,9 +13,9 @@ Creation date: 3/27/2021
 #include <algorithm>
 
 Player::Player(math::vec2 startPos) :
-startPos(startPos), 
+startPos(startPos),  currState(currState),
 Moving_Right(CS230::InputKey::Keyboard::D), Moving_Left(CS230::InputKey::Keyboard::A) {}
-
+#include <doodle/doodle.hpp>
 void Player::Load()
 {
 	sprite.Load("assets/Player.spt");
@@ -30,11 +30,13 @@ void Player::Update(double dt)
 
 	if (Moving_Right.IsKeyDown() == true)
 	{
+		sprite.PlayAnimation(static_cast<int>(Player_Anim::Player_Idle_Anim));
 		Cos_Value = Cos_Value + Speed * dt;
 		Sin_Value = Sin_Value + Speed *dt;
 	}
 	if (Moving_Left.IsKeyDown() == true)
 	{
+		sprite.PlayAnimation(static_cast<int>(Player_Anim::Player_Dead_Anim));
 		Cos_Value = Cos_Value - Speed * dt;
 		Sin_Value = Sin_Value - Speed * dt;
 	}
@@ -48,18 +50,28 @@ void Player::Update(double dt)
 
 void Player::Draw()
 {
-	if (Player_Life == true)
+
+	cout << Count << endl;
+	 if (Count > Timer && Player_Life == true)
 	{
-		sprite.Draw(objectMatrix);
-	}
-	else if (Count >= Timer)
-	{
+		 Count = 25;
 		Win.Draw(objectMatrix);
 	}
 	else if (Player_Life == false)
 	{
+		Count = 0;
 		Die.Draw(objectMatrix);
 	}
+	else
+	 {
+		 sprite.Draw(objectMatrix);
+	 }
+
+	 doodle::push_settings();
+	 doodle::set_fill_color(doodle::HexColor{ 0xF0F8FF });
+	 doodle::draw_text("Timer  :  " + std::to_string(25 - static_cast<int>(Count)), 0, Engine::GetWindow().GetSize().y - 100);
+	 doodle::draw_text("Score  :  " + std::to_string(static_cast<int>(Count * 50)), Engine::GetWindow().GetSize().x /1.5, Engine::GetWindow().GetSize().y - 100);
+	 doodle::pop_settings();
 
 	
 }

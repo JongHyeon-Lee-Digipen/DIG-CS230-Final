@@ -91,9 +91,9 @@ private:
 	math::vec2 position;
 	math::vec2 velocity;
 	math::TransformMatrix objectMatrix;
-	bool isJumping = 0;
-	bool isRising = 0;
-	bool isFlipping = 0;
+	bool isJumping {};
+	bool isRising {};
+	bool isFlipping {};
 
 	static constexpr double jumpVelocity = 950;
 	static constexpr double xAccel = 600;
