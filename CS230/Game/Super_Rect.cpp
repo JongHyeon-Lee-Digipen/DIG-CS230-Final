@@ -23,9 +23,9 @@ void Super_Rect::Load()
 
 void Super_Rect::Update(double dt)
 {
-	position.x = (sin(Sin_Value) * 100) * dt + Engine::GetWindow().GetSize().x / 2.0 - 50;
-	position.y = (cos(Cos_Value) * 100) * dt + Engine::GetWindow().GetSize().y / 2.0;
-	//objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2(0.01));
+	position.x = (sin(30) * 100) * dt + Engine::GetWindow().GetSize().x / 2.0 - 50;
+	position.y = (cos(0.5) * 100) * dt + Engine::GetWindow().GetSize().y / 2.0;
+	objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({1,0.5}));
 }
 
 void Super_Rect::Draw()

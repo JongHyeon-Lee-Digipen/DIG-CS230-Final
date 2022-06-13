@@ -26,20 +26,20 @@ void Player::Update(double dt)
 {
 	if (Moving_Right.IsKeyDown() == true)
 	{
-		Cos_Value = Cos_Value - Speed * dt;
-		Sin_Value = Sin_Value - Speed *dt;
+		Cos_Value = Cos_Value + Speed * dt;
+		Sin_Value = Sin_Value + Speed *dt;
 	}
 	if (Moving_Left.IsKeyDown() == true)
 	{
-		Cos_Value = Cos_Value + Speed * dt;
-		Sin_Value = Sin_Value + Speed * dt;
+		Cos_Value = Cos_Value - Speed * dt;
+		Sin_Value = Sin_Value - Speed * dt;
 	}
 
 	cout << Current_State << endl;
 	cout << "Player_X  :  " << sin(Sin_Value) << "\t" << "Player_Y  :  " << cos(Cos_Value) << endl;
 	velocity -= (velocity * Player::drag * dt);
 	position += velocity * dt;
-	position.x = (sin(Sin_Value) * 3000 ) * dt + Engine::GetWindow().GetSize().x / 2.0 ;
+	position.x = (sin(Sin_Value) * 3000 ) * dt+ Engine::GetWindow().GetSize().x / 2.0 ;
 	position.y = (cos(Cos_Value) * 3000) * dt + Engine::GetWindow().GetSize().y / 2.0;
 	objectMatrix = math::TranslateMatrix(position) * math::ScaleMatrix(math::vec2(0.01));
 	Player_State();
@@ -53,10 +53,9 @@ void Player::Draw()
 
 void Player::Player_State()
 {
-	if (sin(Sin_Value) <= static_cast<double>(5) / 6)
+	if (sin(Sin_Value) <= static_cast<double>(5) / 6 && sin(Sin_Value) >= 0)
 	{
-	
-		if (cos(Cos_Value) >= static_cast<double>(1 / 2) && cos(Cos_Value) <= 1)
+		if (cos(Cos_Value) >= static_cast<double>(1) / 2 && cos(Cos_Value) <= 1)
 		{
 			Current_State = 1;
 		}
@@ -64,22 +63,42 @@ void Player::Player_State()
 
 	if (sin(Sin_Value) >= static_cast<double>(5) / 6 )
 	{
-	
-		if (cos(Cos_Value) < static_cast<double>  (1) / 2 && cos(Cos_Value) > -(1) / 2)
+		if (cos(Cos_Value) < static_cast<double>  (1) / 2 && cos(Cos_Value) > static_cast<double>(-1) / 2)
 		{
 			Current_State = 2;
 		}
 	}
 
-	//if (sin(Sin_Value) <= static_cast<double>(5 / 6) && sin(Sin_Value) >= 0)
-	//{
-	//	if (cos(Cos_Value) >= static_cast<double>(-1 / 2) && cos(Cos_Value) <= -1)
-	//	{
-	//		Current_State = 3;
-	//	}
-	//}
-	//else
-	//{
-	//	Current_State = 10;
-	//}
+	if (sin(Sin_Value) <= static_cast<double>(5) / 6 && sin(Sin_Value)>= 0)
+	{
+		if (cos(Cos_Value) <= static_cast<double>(-1) / 2 && cos(Cos_Value) >= -1)
+		{
+
+			Current_State = 3;
+		}
+	}
+
+	if (sin(Sin_Value) >= static_cast<double>(-5) / 6 && sin(Sin_Value) <= 0)
+	{
+		if (cos(Cos_Value) <= static_cast<double>(-1) / 2 && cos(Cos_Value) >= -1)
+		{
+			Current_State = 4;
+		}
+	}
+
+	if (sin(Sin_Value) <= static_cast<double>(-5) / 6)
+	{
+		if (cos(Cos_Value) < static_cast<double>  (1) / 2 && cos(Cos_Value) > static_cast<double>(-1) / 2)
+		{
+			Current_State = 5;
+		}
+	}
+
+	if (sin(Sin_Value) >= static_cast<double>(-5) / 6 && sin(Sin_Value) <= 0)
+	{
+		if (cos(Cos_Value) >= static_cast<double>(1) / 2 && cos(Cos_Value) <= 1)
+		{
+			Current_State = 6;
+		}
+	}
 }

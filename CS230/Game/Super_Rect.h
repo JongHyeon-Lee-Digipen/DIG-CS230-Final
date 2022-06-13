@@ -28,6 +28,10 @@ private:
 	math::vec2 position;
 	math::vec2 velocity;
 
+	static constexpr double drag = 1;
+	static constexpr double Speed = 200;
+	double currentRotation = 0;
+
 	double Cos_Value{};
 	double Sin_Value{};
 	int Hexagon_Num{};
