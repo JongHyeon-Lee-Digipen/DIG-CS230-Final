@@ -17,7 +17,7 @@ Creation date: 2/14/2021
 class Super_Rect2
 {
 public:
-	Super_Rect2(math::vec2 startPos, double currentRotation, double Timer);
+	Super_Rect2(math::vec2 startPos, double currentRotation, double Timers);
 	void Load();
 	void Update(double dt);
 	void Draw();
@@ -39,6 +39,7 @@ private:
 	double RectWidth = 1;
 	double RectHeight = 0.5;
 	double Timer{};
+	double Timers{};
 
 	math::TransformMatrix objectMatrix;
 };

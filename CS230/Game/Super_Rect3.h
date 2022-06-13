@@ -39,6 +39,7 @@ private:
 	double RectWidth = 1;
 	double RectHeight = 0.5;
 	double Timer{};
+	double Timers{};
 
 	math::TransformMatrix objectMatrix;
 };

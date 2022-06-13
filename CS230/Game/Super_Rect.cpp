@@ -28,8 +28,6 @@ void Super_Rect::Update(double dt)
 	Timer += dt;
 	if (Timers < Timer)
 	{
-
-
 		math::TransformMatrix roation = math::RotateMatrix(currentRotation);
 		velocity += roation * math::vec2(0, accel * dt);
 
@@ -61,7 +59,7 @@ void Super_Rect::Update(double dt)
 
 void Super_Rect::Draw()
 {
-	if (Timers < Timer)
+	if (Timers < Timer && Player_Life == true)
 	{
 		sprite.Draw(objectMatrix);
 	}

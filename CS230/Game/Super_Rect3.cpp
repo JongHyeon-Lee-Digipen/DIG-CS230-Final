@@ -12,8 +12,8 @@ Creation date: 3/27/2021
 #include "Super_Rect3.h"
 #include <algorithm>
 
-Super_Rect3::Super_Rect3(math::vec2 startPos , double currentRotation , double Timer):
-	startPos(startPos) , currentRotation(currentRotation) , Timer(Timer)
+Super_Rect3::Super_Rect3(math::vec2 startPos , double currentRotation , double Timers):
+	startPos(startPos) , currentRotation(currentRotation) , Timers(Timers)
 {}
 
 void Super_Rect3::Load()
@@ -26,26 +26,32 @@ void Super_Rect3::Load()
 void Super_Rect3::Update(double dt)
 {
 	Timer += dt;
-	math::TransformMatrix roation = math::RotateMatrix(currentRotation);
-	velocity += roation * math::vec2(0, accel * dt);
-	velocity -= (velocity * Super_Rect3::drag * dt);
-	position.y -= velocity.y * dt;
-	RectWidth -= 0.90 * dt;
-	RectHeight -= 0.66 * dt;
-
-	if (RectHeight < 0)
+	if (Timers < Timer)
 	{
-		RectHeight = 0;
-	}
-	if (Current_State == 1 && (RectHeight > 0 && RectHeight <= 0.1))
-	{
-		Player_Life = false;
-	}
+		math::TransformMatrix roation = math::RotateMatrix(currentRotation);
+		velocity += roation * math::vec2(0, accel * dt);
+		velocity -= (velocity * Super_Rect3::drag * dt);
+		position.y -= velocity.y * dt;
+		RectWidth -= 0.90 * dt;
+		RectHeight -= 0.66 * dt;
 
-	objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
-}
+		if (RectHeight < 0)
+		{
+			RectHeight = 0;
+		}
+		if (Current_State == 1 && (RectHeight > 0 && RectHeight <= 0.1))
+		{
+			Player_Life = false;
+		}
+
+		objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
+	}
+	}
 
 void Super_Rect3::Draw()
 {
-	sprite.Draw(objectMatrix);
+	if (Timers < Timer && Player_Life == true)
+	{
+		sprite.Draw(objectMatrix);
+	}
 }

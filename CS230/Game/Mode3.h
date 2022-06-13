@@ -35,6 +35,22 @@ private:
 	Super_Rect2* super_rect2_1;
 	Super_Rect3* super_rect3_1;
 	Super_Rect4* super_rect4_1;
+
+	Super_Rect* super_rect1_2;
+	Super_Rect2* super_rect2_2;
+	Super_Rect3* super_rect3_2;
+	Super_Rect4* super_rect4_2;
+
+	Super_Rect* super_rect1_3;
+	Super_Rect2* super_rect2_3;
+	Super_Rect3* super_rect3_3;
+	Super_Rect4* super_rect4_3;
+
+	Super_Rect* super_rect1_4;
+	Super_Rect2* super_rect2_4;
+	Super_Rect3* super_rect3_4;
+	Super_Rect4* super_rect4_4;
+
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
 	double Timer{};

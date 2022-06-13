@@ -12,8 +12,8 @@ Creation date: 3/27/2021
 #include "Super_Rect4.h"
 #include <algorithm>
 
-Super_Rect4::Super_Rect4(math::vec2 startPos , double currentRotation , double Timer):
-	startPos(startPos) , currentRotation(currentRotation) , Timer(Timer)
+Super_Rect4::Super_Rect4(math::vec2 startPos , double currentRotation , double Timers):
+	startPos(startPos) , currentRotation(currentRotation) , Timers(Timers)
 {}
 
 void Super_Rect4::Load()
@@ -26,27 +26,33 @@ void Super_Rect4::Load()
 void Super_Rect4::Update(double dt)
 {
 	Timer += dt;
-	math::TransformMatrix roation = math::RotateMatrix(currentRotation);
-	velocity += roation * math::vec2(0, accel * dt);
-
-	velocity.x -= (velocity.x * Super_Rect4::drag * dt);
-	position.x -= velocity.x * dt;
-	RectWidth -= 0.90 * dt;
-	RectHeight -= 0.66 * dt;
-
-	if (RectHeight < 0)
+	if (Timers < Timer)
 	{
-		RectHeight = 0;
-	}
-	if (Current_State == 2 && (RectHeight > 0 && RectHeight <= 0.1))
-	{
-		Player_Life = false;
-	}
+		math::TransformMatrix roation = math::RotateMatrix(currentRotation);
+		velocity += roation * math::vec2(0, accel * dt);
 
-	objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
-}
+		velocity.x -= (velocity.x * Super_Rect4::drag * dt);
+		position.x -= velocity.x * dt;
+		RectWidth -= 0.90 * dt;
+		RectHeight -= 0.66 * dt;
+
+		if (RectHeight < 0)
+		{
+			RectHeight = 0;
+		}
+		if (Current_State == 2 && (RectHeight > 0 && RectHeight <= 0.1))
+		{
+			Player_Life = false;
+		}
+
+		objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
+	}
+	}
 
 void Super_Rect4::Draw()
 {
-	sprite.Draw(objectMatrix);
+	if (Timers < Timer && Player_Life == true)
+	{
+		sprite.Draw(objectMatrix);
+	}
 }
