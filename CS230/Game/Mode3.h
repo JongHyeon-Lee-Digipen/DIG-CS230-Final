@@ -15,6 +15,7 @@ Creation date: 2/10/2021
 #include "Super_Rect2.h"
 #include "Super_Rect3.h"
 #include "Super_Rect4.h"
+#include "Background.h"
 #include "../Engine/GameObjectManager.h"
 
 class Mode3 : public CS230::GameState 
@@ -51,6 +52,7 @@ private:
 	Super_Rect3* super_rect3_4;
 	Super_Rect4* super_rect4_4;
 
+	Background background;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
 	double Timer{};
