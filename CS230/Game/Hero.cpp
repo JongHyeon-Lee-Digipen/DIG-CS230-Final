@@ -135,10 +135,9 @@ void Hero::State_Running::TestForExit(Hero* hero)
 	{
 		hero->ChangeState(&hero->stateJumping);
 	}
-
 }
 
-void Hero::State_Skidding::Enter  ([[maybe_unused]]  Hero* hero)
+void Hero::State_Skidding::Enter  ([[maybe_unused]] Hero* hero)
 {
 	hero->sprite.PlayAnimation(static_cast<int>(Hero_Anim::Hero_Fall_Anim));
 }
