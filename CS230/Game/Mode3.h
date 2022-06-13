@@ -12,8 +12,10 @@ Creation date: 2/10/2021
 #include "..\Engine\Input.h"
 #include "Player.h"
 #include "Super_Rect.h"
+#include "../Engine/GameObjectManager.h"
 
-class Mode3 : public CS230::GameState {
+class Mode3 : public CS230::GameState 
+{
 public:
 	Mode3();
 	void Load() override;
@@ -25,7 +27,9 @@ public:
 private:
 
 	Player player;
-	Super_Rect* super_rect;
+	CS230::GameObjectManager gameObjectManager;
+	Super_Rect* super_rect1;
+	Super_Rect* super_rect2;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
 	static constexpr double RectStart = 200;

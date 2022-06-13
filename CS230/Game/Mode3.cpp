@@ -17,20 +17,22 @@ Creation date: 3/14/2021
 Mode3::Mode3()
 	:player(Engine::GetWindow().GetSize() / 2.0),
 	modeReload(CS230::InputKey::Keyboard::R),
-	modeNext(CS230::InputKey::Keyboard::Enter)
-{}
+	modeNext(CS230::InputKey::Keyboard::Enter){}
 
 void Mode3::Load() 
 {
-	super_rect = new Super_Rect({(Engine::GetWindow().GetSize().x / 2.0) + RectStart, 400});
-	super_rect->Load();
+	super_rect1 = new Super_Rect({ (Engine::GetWindow().GetSize().x / 2.0) + RectStart, 400 },0,1);
+	super_rect2 = new Super_Rect({ (Engine::GetWindow().GetSize().x / 2.0) + RectStart, 400 }, 0.94,1);
+	super_rect1->Load();
+	super_rect2->Load();
 	player.Load();
 }
 
 void Mode3::Update(double dt)
 {
 	player.Update(dt);
-	super_rect->Update(dt);
+	super_rect1->Update(dt);
+	super_rect2->Update(dt);
 	if (modeNext.IsKeyReleased() == true)
 	{
 		Engine::GetGameStateManager().Shutdown();
@@ -48,5 +50,6 @@ void Mode3::Draw()
 {
 	Engine::GetWindow().Clear(0x0F0000FF);
 	player.Draw();
-	super_rect->Draw();
+	super_rect1->Draw();
+	super_rect2->Draw();
 }

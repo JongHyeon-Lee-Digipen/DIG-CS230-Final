@@ -12,8 +12,8 @@ Creation date: 3/27/2021
 #include "Super_Rect.h"
 #include <algorithm>
 
-Super_Rect::Super_Rect(math::vec2 startPos):
-	startPos(startPos)
+Super_Rect::Super_Rect(math::vec2 startPos , double currentRotation , double Timer):
+	startPos(startPos) , currentRotation(currentRotation) , Timer(Timer)
 {}
 
 void Super_Rect::Load()
@@ -25,12 +25,12 @@ void Super_Rect::Load()
 
 void Super_Rect::Update(double dt)
 {
-	//position.x = (sin(30) * 100) * dt + Engine::GetWindow().GetSize().x / 2.0 - 50;
-	//position.y = (cos(0.5) * 100) * dt + Engine::GetWindow().GetSize().y / 2.0;
+
+	Timer + dt;
 	math::TransformMatrix roation = math::RotateMatrix(currentRotation);
 	velocity += roation * math::vec2(0, accel * dt);
-	//currentRotation - Speed * dt;
 
+	cout << Timer << endl;
 	if ((startPos.x - position.x) <= (Engine::GetWindow().GetSize().x / 2.0))
 	{
 		position.x = startPos.x;

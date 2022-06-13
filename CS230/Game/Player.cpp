@@ -35,8 +35,8 @@ void Player::Update(double dt)
 		Sin_Value = Sin_Value - Speed * dt;
 	}
 
-	cout << Current_State << endl;
-	cout << "Player_X  :  " << sin(Sin_Value) << "\t" << "Player_Y  :  " << cos(Cos_Value) << endl;
+	//cout << Current_State << endl;
+	//cout << "Player_X  :  " << sin(Sin_Value) << "\t" << "Player_Y  :  " << cos(Cos_Value) << endl;
 	velocity -= (velocity * Player::drag * dt);
 	position += velocity * dt;
 	position.x = (sin(Sin_Value) * 3000) * dt+ Engine::GetWindow().GetSize().x / 2.0 ;

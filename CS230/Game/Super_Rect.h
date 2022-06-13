@@ -17,7 +17,7 @@ Creation date: 2/14/2021
 class Super_Rect
 {
 public:
-	Super_Rect(math::vec2 startPos);
+	Super_Rect(math::vec2 startPos, double currentRotation, double Timer);
 	void Load();
 	void Update(double dt);
 	void Draw();
@@ -38,7 +38,7 @@ private:
 	double Sin_Value{};
 	double RectWidth = 1;
 	double RectHeight = 0.5;
-	//int Hexagon_Num{};
+	double Timer{};
 
 	math::TransformMatrix objectMatrix;
 };
