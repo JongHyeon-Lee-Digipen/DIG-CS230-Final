@@ -14,7 +14,7 @@ Ship::Ship(math::vec2 startPos) :
 	rotateCounterKey(CS230::InputKey::Keyboard::A),
 	rotateClockKey(CS230::InputKey::Keyboard::D),
 	accelerateKey(CS230::InputKey::Keyboard::W),
-	startPos(startPos) , isAccel(isAccel)
+	startPos(startPos) , isAccel(false)
 {}
 
 void Ship::Load() {

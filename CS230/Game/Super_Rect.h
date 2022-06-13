@@ -2,7 +2,7 @@
 Copyright (C) 2021 DigiPen Institute of Technology.
 Reproduction or disclosure of this file or its contents without the prior
 written consent of DigiPen Institute of Technology is prohibited.
-File Name: Ball.h
+File Name: Super_Rect.h
 Project: CS230
 Author: Kevin Wright
 Creation date: 2/14/2021
@@ -16,26 +16,28 @@ Creation date: 2/14/2021
 
 class Super_Rect
 {
-	public:
-		Super_Rect(math::vec2 startPos);
-		void Load();
-		void Update(double dt);
-		void Draw();
+public:
+	Super_Rect(math::vec2 startPos);
+	void Load();
+	void Update(double dt);
+	void Draw();
 private:
-
 	CS230::Sprite sprite;
 	math::vec2 startPos;
 	math::vec2 position;
 	math::vec2 velocity;
 
+	static constexpr double accel = 400;
 	static constexpr double drag = 1;
 	static constexpr double Speed = 200;
+	static constexpr double rotate = 1;
 	double currentRotation = 0;
 
 	double Cos_Value{};
 	double Sin_Value{};
-	int Hexagon_Num{};
+	double RectWidth = 1;
+	double RectHeight = 0.5;
+	//int Hexagon_Num{};
 
 	math::TransformMatrix objectMatrix;
-	
 };

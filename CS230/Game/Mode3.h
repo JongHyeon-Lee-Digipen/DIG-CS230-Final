@@ -2,7 +2,7 @@
 Copyright (C) 2021 DigiPen Institute of Technology.
 Reproduction or disclosure of this file or its contents without the prior
 written consent of DigiPen Institute of Technology is prohibited.
-File Name: Level2.h
+File Name: Mode2.h
 Project: CS230
 Author: Kevin Wright
 Creation date: 2/10/2021
@@ -25,7 +25,7 @@ public:
 private:
 
 	Player player;
-	Super_Rect super_rect;
+	Super_Rect* super_rect;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
 };

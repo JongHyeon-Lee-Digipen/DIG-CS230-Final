@@ -14,12 +14,14 @@ Creation date: 3/14/2021
 #include "../Engine/Camera.h"
 
 
-Mode1::Mode1() : 
-
-modeReload(CS230::InputKey::Keyboard::R), modeNext(CS230::InputKey::Keyboard::Enter),
-camera(math::rect2{ math::vec2{Engine::GetWindow().GetSize().x * (15.0 / 100.0),0},math::vec2{Engine::GetWindow().GetSize().x * (35.0 / 100.0), 0} })
-, hero(nullptr) ,ball1(nullptr),ball2(nullptr),ball3(nullptr)
-
+Mode1::Mode1() 
+	: modeReload(CS230::InputKey::Keyboard::R), modeNext(CS230::InputKey::Keyboard::Enter),
+	camera(math::rect2{ math::vec2{Engine::GetWindow().GetSize().x * (15.0 / 100.0),0},
+	math::vec2{Engine::GetWindow().GetSize().x * (35.0 / 100.0), 0} }),
+	hero(nullptr),
+	ball1(nullptr),
+	ball2(nullptr),
+	ball3(nullptr)
 {}
 
 void Mode1::Load() 
