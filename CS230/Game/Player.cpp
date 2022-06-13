@@ -51,7 +51,6 @@ void Player::Update(double dt)
 void Player::Draw()
 {
 
-	cout << Count << endl;
 	 if (Count > Timer && Player_Life == true)
 	{
 		 Count = 25;
@@ -103,7 +102,6 @@ void Player::State_Idle::TestForExit([[maybe_unused]] Player* player)
 
 void Player::State_Dead::Enter(Player* player)
 {
-	cout << "Enter" << endl;
 	player->sprite.PlayAnimation(static_cast<int>(Player_Anim::Player_Dead_Anim));
 }
 
