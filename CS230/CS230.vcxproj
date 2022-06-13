@@ -162,6 +162,8 @@
     <ClCompile Include="Game\Splash.cpp" />
     <ClCompile Include="Game\Super_Rect.cpp" />
     <ClCompile Include="Game\Super_Rect2.cpp" />
+    <ClCompile Include="Game\Super_Rect3.cpp" />
+    <ClCompile Include="Game\Super_Rect4.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +197,8 @@
     <ClInclude Include="Game\Splash.h" />
     <ClInclude Include="Game\Super_Rect.h" />
     <ClInclude Include="Game\Super_Rect2.h" />
+    <ClInclude Include="Game\Super_Rect3.h" />
+    <ClInclude Include="Game\Super_Rect4.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\Vec.inl" />

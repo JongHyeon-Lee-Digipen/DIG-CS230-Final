@@ -13,6 +13,8 @@ Creation date: 2/10/2021
 #include "Player.h"
 #include "Super_Rect.h"
 #include "Super_Rect2.h"
+#include "Super_Rect3.h"
+#include "Super_Rect4.h"
 #include "../Engine/GameObjectManager.h"
 
 class Mode3 : public CS230::GameState 
@@ -30,9 +32,9 @@ private:
 	Player player;
 	CS230::GameObjectManager gameObjectManager;
 	Super_Rect* super_rect1_1;
-	Super_Rect* super_rect1_2;
 	Super_Rect2* super_rect2_1;
-	Super_Rect2* super_rect2_2;
+	Super_Rect3* super_rect3_1;
+	Super_Rect4* super_rect4_1;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
 	static constexpr double RectStart = 300;
