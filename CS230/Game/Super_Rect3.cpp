@@ -28,7 +28,6 @@ void Super_Rect3::Update(double dt)
 	Timer += dt;
 	math::TransformMatrix roation = math::RotateMatrix(currentRotation);
 	velocity += roation * math::vec2(0, accel * dt);
-
 	velocity -= (velocity * Super_Rect3::drag * dt);
 	position.y -= velocity.y * dt;
 	RectWidth -= 0.90 * dt;
@@ -37,6 +36,10 @@ void Super_Rect3::Update(double dt)
 	if (RectHeight < 0)
 	{
 		RectHeight = 0;
+	}
+	if (Current_State == 1 && (RectHeight > 0 && RectHeight <= 0.1))
+	{
+		Player_Life = false;
 	}
 
 	objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));

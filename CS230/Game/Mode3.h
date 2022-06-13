@@ -37,6 +37,7 @@ private:
 	Super_Rect4* super_rect4_1;
 	CS230::InputKey modeReload;
 	CS230::InputKey modeNext;
+	double Timer{};
 	static constexpr double RectStart = 300;
 };
 

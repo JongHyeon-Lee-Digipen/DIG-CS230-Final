@@ -38,6 +38,10 @@ void Super_Rect4::Update(double dt)
 	{
 		RectHeight = 0;
 	}
+	if (Current_State == 2 && (RectHeight > 0 && RectHeight <= 0.1))
+	{
+		Player_Life = false;
+	}
 
 	objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
 }

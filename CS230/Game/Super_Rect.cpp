@@ -12,8 +12,8 @@ Creation date: 3/27/2021
 #include "Super_Rect.h"
 #include <algorithm>
 
-Super_Rect::Super_Rect(math::vec2 startPos , double currentRotation , double Timer):
-	startPos(startPos) , currentRotation(currentRotation) , Timer(Timer)
+Super_Rect::Super_Rect(math::vec2 startPos , double currentRotation , double Timers):
+	startPos(startPos) , currentRotation(currentRotation) , Timers(Timers)
 {}
 
 void Super_Rect::Load()
@@ -26,34 +26,43 @@ void Super_Rect::Load()
 void Super_Rect::Update(double dt)
 {
 	Timer += dt;
-	math::TransformMatrix roation = math::RotateMatrix(currentRotation);
-	velocity += roation * math::vec2(0, accel * dt);
-
-
-	velocity -= (velocity * Super_Rect::drag * dt);
-	position.y -= velocity.y * dt;
-	if (RectHeight > 0)
+	if (Timers < Timer)
 	{
-		RectWidth -= 0.90 * dt;
-		RectHeight -= 0.66 * dt;
-	}
 
-	cout << RectHeight << endl;
-	cout << Current_State << endl;
-	cout << Player_Life << endl;
-	if (RectHeight < 0)
-	{
-		RectHeight = 0;
-	}
-	if (Current_State == 3 && (RectHeight > 0 && RectHeight <= 0.1))
-	{
-		Player_Life = false;
-	}
 
-	objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
+		math::TransformMatrix roation = math::RotateMatrix(currentRotation);
+		velocity += roation * math::vec2(0, accel * dt);
+
+
+
+		velocity -= (velocity * Super_Rect::drag * dt);
+		position.y -= velocity.y * dt;
+		if (RectHeight > 0)
+		{
+			RectWidth -= 0.90 * dt;
+			RectHeight -= 0.66 * dt;
+		}
+
+		cout << RectHeight << endl;
+		cout << Current_State << endl;
+		cout << Player_Life << endl;
+		if (RectHeight < 0)
+		{
+			RectHeight = 0;
+		}
+		if (Current_State == 3 && (RectHeight > 0 && RectHeight <= 0.1))
+		{
+			Player_Life = false;
+		}
+
+		objectMatrix = math::TranslateMatrix(position) * math::RotateMatrix(currentRotation) * math::ScaleMatrix(math::vec2({ RectWidth, RectHeight }));
+	}
 }
 
 void Super_Rect::Draw()
 {
-	sprite.Draw(objectMatrix);
+	if (Timers < Timer)
+	{
+		sprite.Draw(objectMatrix);
+	}
 }
