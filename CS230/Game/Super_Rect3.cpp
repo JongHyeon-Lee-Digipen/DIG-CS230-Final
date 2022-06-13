@@ -29,8 +29,6 @@ void Super_Rect3::Update(double dt)
 	math::TransformMatrix roation = math::RotateMatrix(currentRotation);
 	velocity += roation * math::vec2(0, accel * dt);
 
-	cout << RectHeight << endl;
-
 	velocity -= (velocity * Super_Rect3::drag * dt);
 	position.y -= velocity.y * dt;
 	RectWidth -= 0.90 * dt;

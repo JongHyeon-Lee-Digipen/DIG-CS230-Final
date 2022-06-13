@@ -16,11 +16,14 @@ Creation date: 2/11/2021
 class Player
 {
 public:
+	Player() = default;
 	Player(math::vec2 startPos);
 	void Load();
 	void Update(double dt);
 	void Draw();
 	void Player_State();
+	int Get_Num();
+	void Set_Life(bool& Life);
 
 private:
 
@@ -35,11 +38,12 @@ private:
 	double Cos_Value{};
 	double Sin_Value{};
 
-	int  Current_State{6};
-
 
 	CS230::InputKey Moving_Right;
 	CS230::InputKey Moving_Left;
 	math::TransformMatrix objectMatrix;
 };
 
+inline Player player({0,0});
+inline int  Current_State{ 3 };
+inline bool Player_Life = true;

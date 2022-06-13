@@ -34,11 +34,13 @@ private:
 	static constexpr double rotate = pi / 2.0;
 	double currentRotation = 0;
 
+	bool AAA = false;
 	double Cos_Value{};
 	double Sin_Value{};
 	double RectWidth = 1;
 	double RectHeight = 0.5;
 	double Timer{};
+	double Rect_Num = 1;
 
 	math::TransformMatrix objectMatrix;
 };

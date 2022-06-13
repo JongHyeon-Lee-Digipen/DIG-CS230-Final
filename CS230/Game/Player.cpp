@@ -13,7 +13,7 @@ Creation date: 3/27/2021
 #include <algorithm>
 
 Player::Player(math::vec2 startPos) :
-startPos(startPos), Current_State(Current_State),
+startPos(startPos), 
 Moving_Right(CS230::InputKey::Keyboard::D), Moving_Left(CS230::InputKey::Keyboard::A) {}
 
 void Player::Load()
@@ -34,9 +34,6 @@ void Player::Update(double dt)
 		Cos_Value = Cos_Value - Speed * dt;
 		Sin_Value = Sin_Value - Speed * dt;
 	}
-
-	cout << Current_State << endl;
-	cout << "Player_X  :  " << sin(Sin_Value) << "\t" << "Player_Y  :  " << cos(Cos_Value) << endl;
 	velocity -= (velocity * Player::drag * dt);
 	position += velocity * dt;
 	position.x = (sin(Sin_Value) * 3000) * dt+ Engine::GetWindow().GetSize().x / 2.0 ;
@@ -47,7 +44,10 @@ void Player::Update(double dt)
 
 void Player::Draw()
 {
-	sprite.Draw(objectMatrix);
+	if (Player_Life == true)
+	{
+		sprite.Draw(objectMatrix);
+	}
 }
 
 
@@ -85,4 +85,14 @@ void Player::Player_State()
 		}
 	}
 
+}
+
+int Player::Get_Num()
+{
+	return Current_State;
+}
+
+void Player::Set_Life(bool &Life)
+{
+	Player_Life = Life;
 }
