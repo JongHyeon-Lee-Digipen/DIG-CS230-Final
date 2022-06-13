@@ -35,8 +35,8 @@ void Player::Update(double dt)
 		Sin_Value = Sin_Value - Speed * dt;
 	}
 
-	//cout << Current_State << endl;
-	//cout << "Player_X  :  " << sin(Sin_Value) << "\t" << "Player_Y  :  " << cos(Cos_Value) << endl;
+	cout << Current_State << endl;
+	cout << "Player_X  :  " << sin(Sin_Value) << "\t" << "Player_Y  :  " << cos(Cos_Value) << endl;
 	velocity -= (velocity * Player::drag * dt);
 	position += velocity * dt;
 	position.x = (sin(Sin_Value) * 3000) * dt+ Engine::GetWindow().GetSize().x / 2.0 ;
@@ -53,52 +53,36 @@ void Player::Draw()
 
 void Player::Player_State()
 {
-	if (sin(Sin_Value) <= static_cast<double>(5) / 6 && sin(Sin_Value) >= 0)
+	if (sin(Sin_Value) <= 1 && sin(Sin_Value) >= 0)
 	{
-		if (cos(Cos_Value) >= static_cast<double>(1) / 2 && cos(Cos_Value) <= 1)
+		if (cos(Cos_Value) >= 0 && cos(Cos_Value) <= 1)
 		{
 			Current_State = 1;
 		}
 	}
 
-	if (sin(Sin_Value) >= static_cast<double>(5) / 6 )
+	if (sin(Sin_Value) <= 1 && sin(Sin_Value) >= 0)
 	{
-		if (cos(Cos_Value) < static_cast<double>  (1) / 2 && cos(Cos_Value) > static_cast<double>(-1) / 2)
+		if (cos(Cos_Value) <= 0 && cos(Cos_Value) >= -1)
 		{
 			Current_State = 2;
 		}
 	}
 
-	if (sin(Sin_Value) <= static_cast<double>(5) / 6 && sin(Sin_Value)>= 0)
+	if (sin(Sin_Value) >= -1 && sin(Sin_Value) <= 0)
 	{
-		if (cos(Cos_Value) <= static_cast<double>(-1) / 2 && cos(Cos_Value) >= -1)
+		if (cos(Cos_Value) <= 0 && cos(Cos_Value) >= -1)
 		{
-
 			Current_State = 3;
 		}
 	}
 
-	if (sin(Sin_Value) >= static_cast<double>(-5) / 6 && sin(Sin_Value) <= 0)
+	if (sin(Sin_Value) >= -1 && sin(Sin_Value) <= 0)
 	{
-		if (cos(Cos_Value) <= static_cast<double>(-1) / 2 && cos(Cos_Value) >= -1)
+		if (cos(Cos_Value) >= 0 && cos(Cos_Value) <= 1)
 		{
 			Current_State = 4;
 		}
 	}
 
-	if (sin(Sin_Value) <= static_cast<double>(-5) / 6)
-	{
-		if (cos(Cos_Value) < static_cast<double>  (1) / 2 && cos(Cos_Value) > static_cast<double>(-1) / 2)
-		{
-			Current_State = 5;
-		}
-	}
-
-	if (sin(Sin_Value) >= static_cast<double>(-5) / 6 && sin(Sin_Value) <= 0)
-	{
-		if (cos(Cos_Value) >= static_cast<double>(1) / 2 && cos(Cos_Value) <= 1)
-		{
-			Current_State = 6;
-		}
-	}
 }
